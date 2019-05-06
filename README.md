@@ -22,6 +22,14 @@ ansible-galaxy install --roles-path ./galaxy -r requirements.yml
 The `ansible.cfg` file includes the directive to include the `./galaxy`
 directory when looking for roles.
 
+## Running
+
+Ping
+
+```
+  ansible -i inventories all -m ping
+```
+
 ## Playbooks
 
 ### provision_docker.yml
