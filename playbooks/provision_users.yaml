@@ -1,0 +1,10 @@
+---
+
+- hosts: bouncer
+  remote_user: root
+  tasks:  
+    - name: "Add the user leo"
+      user:
+          name: leo
+          comment: Leo
+          uid: 1040
