@@ -8,3 +8,8 @@
           name: leo
           comment: Leo
           uid: 1040
+    - name: Install Packages
+      apt:
+        state: latest
+        pkg: ['mosh', 'irssi']
+
