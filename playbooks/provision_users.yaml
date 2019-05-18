@@ -8,8 +8,25 @@
           name: leo
           comment: Leo
           uid: 1040
+          shell: '/usr/bin/zsh'
+    - name: "Add auth key for leo"
+      authorized_key:
+        user: leo
+        state: present
+        key: "{{ lookup('file', '/Users/leo/.ssh/hetzner.pub') }}"
     - name: Install Packages
       apt:
         state: latest
-        pkg: ['mosh', 'irssi']
-
+        pkg: ['mosh', 'irssi', 'zsh']
+    - name: Create a dumping ground
+      file:
+        state: directory
+        path: /mnt/HC_Volume_2515291/leo_dump
+        owner: leo
+        mode: '0755'
+    - name: Create a symbolic link
+      file:
+        src: /mnt/HC_Volume_2515291/leo_dump
+        dest: /home/leo/dump
+        owner: leo
+        state: link
